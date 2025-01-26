@@ -208,67 +208,65 @@ if (!sendButton) {
     console.log("Data yang akan dikirim:", data);
 
     fetch("/api/wishes", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-    });
-
-      .then((response) => {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+})
+    .then((response) => {
         if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
+            throw new Error(`HTTP error! status: ${response.status}`);
         }
         return response.json();
-      })
-      .then((result) => {
+    })
+    .then((result) => {
         console.log("Data berhasil ditambahkan:", result);
-        fetchWishes(); 
-      })
-      .catch((error) => {
+        fetchWishes();
+    })
+    .catch((error) => {
         console.error("Gagal mengirim data:", error);
         alert("Terjadi kesalahan saat menambahkan data.");
-      });
-  });
-}
+    });
+
 
 // Fungsi untuk mengambil data wishes dari server
 function fetchWishes() {
-  console.log("Fetching wishes...");
-  fetch("/api/wishes") // Endpoint GET
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      return response.json();
-    })
-    .then((data) => {
-      console.log("Data wishes:", data);
-      const output = document.getElementById("wishes-output");
+    fetch("/api/wishes")
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then((data) => {
+            console.log("Data wishes:", data);
+            const output = document.getElementById("wishes-output");
 
-      if (!output) {
-        console.error("Elemen wishes-output tidak ditemukan di DOM.");
-        return;
-      }
+            if (!output) {
+                console.error("Elemen wishes-output tidak ditemukan di DOM.");
+                return;
+            }
 
-      output.innerHTML = "";
+            output.innerHTML = "";
 
-      data.forEach((wish) => {
-        const wishItem = `
-          <div class="wish-item">
-            <div class="wish-avatar">${wish.name.charAt(0).toUpperCase()}</div>
-            <div class="wish-content">
-              <p><strong>${wish.name}</strong></p>
-              <p>at ${wish.address}</p>
-              <p>"${wish.wish}"</p>
-            </div>
-          </div>
-        `;
-        output.innerHTML += wishItem;
-      });
-    })
-    .catch((error) => {
-      console.error("Gagal memuat wish:", error);
-    });
+            data.forEach((wish) => {
+                const wishItem = `
+                    <div class="wish-item">
+                        <div class="wish-avatar">${wish.name.charAt(0).toUpperCase()}</div>
+                        <div class="wish-content">
+                            <p><strong>${wish.name}</strong></p>
+                            <p>at ${wish.address}</p>
+                            <p>"${wish.wish}"</p>
+                        </div>
+                    </div>
+                `;
+                output.innerHTML += wishItem;
+            });
+        })
+        .catch((error) => {
+            console.error("Gagal memuat wish:", error);
+        });
 }
+
 
 
 
