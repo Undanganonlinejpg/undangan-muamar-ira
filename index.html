@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Undangan Pernikahan Muamar & Ira</title>
+  <link rel="stylesheet" href="/assets/styles/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Herr+Von+Muellerhoff&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Alice&display=swap" rel="stylesheet">
+  <meta name="description" content="Undangan Pernikahan untuk Muamar dan Ira">
+  <meta name="keywords" content="Undangan Pernikahan, Muamar, Ira">
+  <meta name="author" content="Undanganonlinejpg">
+  <meta name="theme-color" content="#ffffff">
+</head>
+<body>
+  <!-- Leaf Animation -->
+  <div class="leaf-container"></div>
+  <div class="leaf"></div>
+  <div class="leaf"></div>
+  <div class="leaf"></div>
+
+
+  <button id="open-wedding-gift"
+  class="wedding-gift-button">
+  <i class="fa-solid fa-money-bill-wave fa-xl"></i></button>
+  <div class="invitation-container" id="invitation">
+    <h1>Save the Date</h1>
+    <p>MUAMAR & IRA <br> ARE GETTING MARRIED</p>
+    
+    <!-- Pre-Wedding Photo -->
+    <section class="prewedding-photo">
+        <img src="/assets/images/Foto_Prewedding.png" alt="Foto Pre-Wedding" loading="lazy" decoding="async">
+    </section>
+    <p class="date">MINGGU, <br> 2 FEBRUARY 2025</p>
+    <section class="quotes" aria-labelledby="quotes-heading">
+        <blockquote>
+            <p>
+                "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu pasangan hidup dari jenismu sendiri, 
+                supaya kamu merasa tenteram kepadanya, dan dijadikan-Nya di antaramu rasa kasih dan sayang. 
+                Sesungguhnya pada yang demikian itu benar-benar terdapat tanda-tanda bagi kaum yang berpikir." 
+                (QS. Ar-Rum: 21)
+            </p>
+        </blockquote>
+        </section>
+</div>
+
+<!-- Couple Details -->
+<section class="content" aria-labelledby="pasangan-details-heading" id="pasangan">
+    <div class="intro">
+        <h4>
+        Dengan memohon rahmat dan ridho Allah SWT,
+        kami bermaksud menyelenggarakan 
+        syukuran nikah putra-putri kami:
+        </h4>
+        <div class="couple-details">
+        <div class="person">
+            <img src="/assets/images/Pria.png" alt="Pria" class="Photo" loading="lazy" decoding="async">
+            <h4>MUAMAR WAFA</h4>
+            <p>Putra</p>
+            <p>Bapak Tasmono & Ibu Jenyati</p>
+        </div>
+        
+        <div class="person">
+            <img src="/assets/images/Wanita.png" alt="Wanita" class="Photo" loading="lazy" decoding="async">
+            <h4>IRA ASTUTI</h4>
+            <p>Putri</p>
+            <p>Bapak Cecep & Ibu Saiyah</p>
+        </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Countdown Timer -->
+    <section class="countdown" aria-labelledby="countdown-heading">
+        <h2 id="countdown-heading">MENUJU HARI BAHAGIA</h2>
+        <div id="countdown-timer" role="timer">
+            <div><span id="days">00</span><p>Hari</p></div>
+            <div><span id="hours">00</span><p>Jam</p></div>
+            <div><span id="minutes">00</span><p>Menit</p></div>
+            <div><span id="seconds">00</span><p>Detik</p></div>
+        </div>
+    <!-- Reminder Option -->
+        <section class="reminder">
+        <div class="button-container">
+        <button id="set-reminder" 
+        class="reminder-button" aria-label="Set pengingat untuk acara">
+        <i class="fas fa-calendar-plus"></i> Set Reminder </button>
+        <button id="turn-on-notification" 
+        class="notification-button" aria-label="Aktifkan notifikasi">
+        <i class="fas fa-bell"></i> Turn on notification </button>
+        <button id="open-rsvp-btn">
+        <i class="fa-duotone fa-solid fa-book"></i> Reservasi (RSVP) </button>
+        </div>
+        <div id="rsvp-modal" class="hidden"> 
+        <div id="rsvp-form">
+        <h3>Konfirmasi kehadiran anda
+        <button class="close-btn" onclick="closeRSVPForm()">-</button>
+        </h3>
+        <img src="/assets/images/RSVP.png" alt="RSVP" class="Photo" loading="lazy" decoding="async" style="width: 100%; height: 90%;" />
+        <input type="text" id="nama" placeholder="Nama" />
+        <input type="text" id="whatsapp" placeholder="Nomor WhatsApp" />
+        <textarea id="alamat" placeholder="Alamat Anda"></textarea>
+        <p>Respon Anda:</p>
+        <label><input type="radio" name="response" value="yes" /> Ya, Saya akan datang</label>
+        <label><input type="radio" name="response" value="no" /> Maaf, Saya tidak bisa</label>
+        <button type="button" id="sendToWhatsApp">
+        <i class="fab fa-whatsapp"></i> Kirim
+        </button>
+        </div>
+        </div>  
+        </div>
+        </section>
+        </section> 
+
+
+    <!-- Event Details -->
+    <section class="content" aria-labelledby="event-details-heading" id="detail-acara">
+        <h3>Akad</h3>
+        <div class="event-details">
+            <div class="event">
+                <i class="fa fa-calendar" aria-hidden="true"></i>
+                <p>Minggu, 2 February 2025</p>
+            </div>
+            <div class="event">
+                <i class="fa fa-clock" aria-hidden="true"></i>
+                <p>Pukul: 08:00 WIB - Selesai</p>
+            </div>
+            <div class="event">
+                <i class="fa fa-map-marker-alt" aria-hidden="true"></i>
+                <p>Desa Kedungoleng RT 4 RW 9, Kecamatan Paguyangan, Kabupaten Brebes , Jawa Tengah, Indonesia</p>
+            </div>
+        <h3>Resepsi</h3>
+            <div class="event">
+                <i class="fa fa-calendar" aria-hidden="true"></i>
+                <p>Minggu, 2 February 2025</p>
+            </div>
+            <div class="event">
+                <i class="fa fa-clock" aria-hidden="true"></i>
+                <p>Pukul: 10:00 WIB - Selesai</p>
+            </div>
+            <div class="event">
+                <i class="fa fa-map-marker-alt" aria-hidden="true"></i>
+                <p>Desa Kedungoleng RT 4 RW 9, Kecamatan Paguyangan, Kabupaten Brebes , Jawa Tengah, Indonesia</p>
+            </div>
+        </div>
+    </section>
+    <section class="wedding-gift" aria-labelledby="gift-heading" id="wedding-gift">
+        <button class="close-btn-gift" onclick="closeGiftForm()"> x </button>
+        <h3 id="gift-heading">Wedding Gift
+        </h3>
+        <p>
+            Kehadiran Anda merupakan hadiah terindah bagi kami. Namun, jika Anda ingin memberikan tanda kasih, 
+            Anda dapat memberikan kado secara cashless melalui:
+        </p>
+        <div class="gift-details">
+            <img src="https://freepngdesign.com/content/uploads/images/p-2813-2-bank-mandiri-logo-png-transparent-logo-699390155888.png" 
+            alt="Logo Bank Mandiri" class="bank-logo">
+            <p><strong>1560-0209-4699-4</strong></p>
+            <p>A.n. Muamar Wafa</p>
+            <img src="https://4.bp.blogspot.com/-KN_4k5k3v_0/WgO5w1MKHsI/AAAAAAAAEok/kxpDLpCmd2o7c8jYgDb786G1h34fVNHCQCLcBGAs/s1600/bca.png" 
+            alt="Logo Bank BCA" class="bank-logo">
+            <p><strong>4061479788 </strong></p>
+            <p>A.n. Ira Astuti</p>
+        </div>
+    </section> 
+    <section class="location" aria-labelledby="event-details-heading" id="location">
+    <div class="maps">
+        <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126633.63674909946!2d108.85982242162893!3d-7.320029903960245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f88866f457861%3A0x74d52fa7c49c9778!2sKedungoleng%2C%20Kec.%20Paguyangan%2C%20Kabupaten%20Brebes%2C%20Jawa%20Tengah!5e0!3m2!1sid!2sid!4v1737899743890!5m2!1sid!2sid" 
+        width="100%" 
+        height="400" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy"
+        aria-label="Peta lokasi acara">
+    </iframe>
+    </div>
+    <button  id="lihat-lokasi">
+    <i class="fa fa-map-marker-alt"></i> Lihat Lokasi</button> 
+    </section>
+
+
+    <!-- Wishes-->
+    <section class="wishes" id="wishes">
+        <h4>Wishes</h4>
+        <input type="text" id="name" placeholder="Nama Anda" />
+        <textarea id="address" placeholder="Alamat Anda"></textarea>
+        <textarea id="wish" placeholder="Your Wish"></textarea>
+        <button id="send">send</button>         
+      <div id="wishes-output" style="margin-top: 20px;">
+      </div>    
+      <section class="closing" style="margin-top: 20px;">        
+        <p>
+        Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila 
+        Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu kepada kami.
+        </p>
+        <p>Wassalamualaikum Warahmatullahi Wabarakatuh.</p>
+    </section>
+    </section>
+  
+  <!-- Script -->
+  <script src="/scripts/script.js" defer></script> 
+  <footer class="footer">
+    <p>Designed with love by Undanganonlinejpg</p>
+</footer>
+<!-- Background Music -->
+<audio id="background-music" loop>
+    <source src="/assets/music/music-file.mp3" type="audio/mpeg">
+    </audio>
+    <button id="music-toggle" class="music-button" aria-label="Tombol kontrol musik">🎵</button>
+</body>
+
+</html>
