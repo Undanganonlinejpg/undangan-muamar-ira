@@ -268,8 +268,6 @@ function fetchWishes() {
 }
 
 
-
-
 //Music  
 const musicToggle = document.getElementById("music-toggle");
 const music = document.getElementById("background-music");
