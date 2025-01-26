@@ -207,13 +207,12 @@ if (!sendButton) {
 
     console.log("Data yang akan dikirim:", data);
 
-    fetch("https://undangan-muamar-ira.vercel.app/api/wishes", { // <--- Endpoint API di Vercel
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json", 
-      },
-      body: JSON.stringify(data), 
-    })
+    fetch("/api/wishes", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+    });
+
       .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
@@ -234,7 +233,7 @@ if (!sendButton) {
 // Fungsi untuk mengambil data wishes dari server
 function fetchWishes() {
   console.log("Fetching wishes...");
-  fetch("https://undangan-muamar-ira.vercel.app/api/wishes") // Endpoint GET
+  fetch("/api/wishes") // Endpoint GET
     .then((response) => {
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
