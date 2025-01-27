@@ -258,7 +258,6 @@ function fetchWishes() {
     });
 }
 
-
 // Inisialisasi saat halaman dimuat
 document.addEventListener("DOMContentLoaded", fetchWishes);
 
