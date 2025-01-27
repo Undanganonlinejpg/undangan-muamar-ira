@@ -1,10 +1,12 @@
 * {
+    overflow-x: hidden;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 body {
+    overflow-x: hidden;
     font-family: 'Alice', sans-serif;
     color: #5a4a3b;
     text-align: center;
