@@ -650,6 +650,18 @@ h3 {
     background-repeat: no-repeat;
     animation: fall 5s infinite linear;
     z-index: 1;
+    left: calc(50% - 15px);
+}
+
+@keyframes fall {
+    0% {
+        transform: translateX(0) rotate(0deg);
+        top: -50px;
+    }
+    100% {
+        transform: translateX(50px) rotate(360deg); 
+        top: 100vh;
+    }
 }
 
 
