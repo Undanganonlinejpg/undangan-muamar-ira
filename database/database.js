@@ -1,7 +1,7 @@
 const sqlite3 = require("sqlite3").verbose();
 const path = require("path");
 
-const dbPath = "C:\\Users\\renal\\Project\\Undangan Nature\\database\\wedding-wish.db";
+const dbPath = path.join(__dirname, "wedding-wish.db");
 console.log("Path database absolut:", dbPath);
 
 const db = new sqlite3.Database(dbPath, (err) => {
