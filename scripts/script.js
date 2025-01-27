@@ -204,8 +204,7 @@ if (!sendButton) {
 
     console.log("Data yang akan dikirim:", data);
 
-    
-  fetch("https://branch-sixth-tote.glitch.me/wishes", {
+    fetch("https://branch-sixth-tote.glitch.me/wishes", {
       method: "POST",
       headers: {
         "Content-Type": "application/json", 
@@ -221,6 +220,9 @@ if (!sendButton) {
       .then((result) => {
         console.log("Data berhasil ditambahkan:", result);
         fetchWishes(); 
+        document.getElementById("name").value = "";
+        document.getElementById("address").value = "";
+        document.getElementById("wish").value = "";
       })
       .catch((error) => {
         console.error("Gagal mengirim data:", error);
@@ -271,6 +273,7 @@ function fetchWishes() {
 
 // Inisialisasi saat halaman dimuat
 document.addEventListener("DOMContentLoaded", fetchWishes);
+
 
 
 //Music  
