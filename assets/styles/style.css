@@ -714,3 +714,47 @@ h3 {
         }
 
 }
+
+@media screen and (max-width: 768px) {
+    .invitation-container h1 {
+        font-size: 2.5rem;
+    }
+
+    .invitation-container p {
+        font-size: 0.9rem;
+    }
+
+    .date {
+        font-size: 1rem;
+    }
+
+    .prewedding-photo img {
+        max-width: 70%;
+    }
+
+    .countdown {
+        padding: 1.5rem;
+    }
+
+    .countdown-item span {
+        font-size: 1.5rem;
+    }
+
+    .countdown-item p {
+        font-size: 0.8rem;
+    }
+
+    button {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+
+    .wishes input, .wishes textarea {
+        width: 100%;
+        padding: 8px;
+    }
+
+    .wish-item {
+        padding: 10px;
+    }
+}
