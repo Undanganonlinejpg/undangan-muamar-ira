@@ -10,10 +10,10 @@ const PORT = process.env.PORT || 3000;
 // Middleware
 app.use(bodyParser.json());
 app.use(cors({
-  origin: "*", // Ubah jika Anda ingin membatasi akses hanya dari domain tertentu
+  origin: "https://undangan-muamar-ira.vercel.app", // Hanya izinkan domain ini
 }));
 app.use(express.json());
-app.use(express.static(path.join(__dirname, "../")));
+app.use(express.static(path.join(__dirname, "../"))); // Melayani file statis jika perlu
 
 // Endpoint POST untuk menambahkan wish
 app.post("/wishes", (req, res) => {
