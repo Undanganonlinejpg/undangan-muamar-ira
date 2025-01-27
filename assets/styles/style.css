@@ -653,6 +653,17 @@ h3 {
     left: calc(50% - 15px);
 }
 
+@keyframes fall {
+    0% {
+        transform: translateX(0) rotate(0deg);
+        top: -50px;
+    }
+    100% {
+        transform: translateX(50px) rotate(360deg); 
+        top: 100vh;
+    }
+}
+
 
 @media (max-width: 768px) {
     .Photo {
