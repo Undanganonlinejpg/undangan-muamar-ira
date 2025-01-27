@@ -629,41 +629,6 @@ h3 {
     color: #1d3557;
 }
 
-.leaf-container {
-    position: fixed; 
-    top: 0;
-    left: 0;
-    width: 600px; 
-    height: 100%; 
-    pointer-events: none; 
-    overflow: hidden; 
-}
-
-.leaf {
-    position: absolute;
-    top: -50px;
-    left: 50%;
-    width: 30px;
-    height: 30px;
-    background-image: url('/assets/images/leaf.png'); 
-    background-size: cover;
-    background-repeat: no-repeat;
-    animation: fall 5s infinite linear;
-    z-index: 1;
-    left: calc(50% - 15px);
-}
-
-@keyframes fall {
-    0% {
-        transform: translateX(0) rotate(0deg);
-        top: -50px;
-    }
-    100% {
-        transform: translateX(50px) rotate(360deg); 
-        top: 100vh;
-    }
-}
-
 
 @media (max-width: 768px) {
     .Photo {
