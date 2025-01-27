@@ -708,5 +708,9 @@ h3 {
             max-width: 250px;
             width: 80%;
             }
+    .footer{
+        max-width: 600px;
+        width: 100%;
+        }
 
 }
