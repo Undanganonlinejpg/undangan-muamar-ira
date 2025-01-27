@@ -171,8 +171,7 @@ document.getElementById('open-wedding-gift').addEventListener('click', function(
   }
 
 //Wish  
-
-// Fungsi untuk mengirimkan data wishes
+// Mengirimkan wish
 function sendWish() {
   const name = document.getElementById("name").value.trim();
   const address = document.getElementById("address").value.trim();
@@ -196,19 +195,15 @@ function sendWish() {
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
-      return response.json();
-    })
-    .then(() => {
-      alert("Ucapan berhasil dikirim!");
-      fetchWishes();
+      alert("Wish berhasil ditambahkan!");
+      fetchWishes(); // Refresh daftar wishes
     })
     .catch((error) => {
       console.error("Gagal mengirim data:", error);
-      alert("Terjadi kesalahan saat mengirim data.");
     });
 }
 
-// Fungsi untuk mengambil dan menampilkan wishes
+// Mengambil wishes
 function fetchWishes() {
   fetch("https://undangan-muamar-ira.vercel.app/wishes")
     .then((response) => {
@@ -219,33 +214,26 @@ function fetchWishes() {
     })
     .then((data) => {
       const output = document.getElementById("wishes-output");
-      if (!output) return;
-
-      output.innerHTML = "";
-      data.forEach((wish) => {
-        const wishItem = `
+      if (output) {
+        output.innerHTML = data
+          .map(
+            (wish) => `
           <div class="wish-item">
-            <div class="wish-avatar">${wish.name.charAt(0).toUpperCase()}</div>
-            <div class="wish-content">
-              <p><strong>${wish.name}</strong></p>
-              <p>at ${wish.address}</p>
-              <p>"${wish.wish}"</p>
-            </div>
+            <strong>${wish.name}</strong> dari ${wish.address} berkata: "${wish.wish}"
           </div>
-        `;
-        output.innerHTML += wishItem;
-      });
+        `
+          )
+          .join("");
+      }
     })
     .catch((error) => {
-      console.error("Gagal memuat wish:", error);
+      console.error("Gagal mengambil data:", error);
     });
 }
 
-// Event listener untuk tombol kirim wishes
-const sendButton = document.getElementById("send");
-if (sendButton) {
-  sendButton.addEventListener("click", sendWish);
-}
+// Inisialisasi saat halaman dimuat
+document.addEventListener("DOMContentLoaded", fetchWishes);
+
 
 //Music  
 const musicToggle = document.getElementById("music-toggle");
