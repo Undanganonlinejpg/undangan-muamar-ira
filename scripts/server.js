@@ -4,24 +4,20 @@ const db = require("../database/database");
 const bodyParser = require("body-parser");
 const path = require("path");
 
-
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-
-console.log("Tipe db:", typeof db);
-console.log("Isi db:", db);
-
-
+// Middleware
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors({
+  origin: "https://undangan-muamar-ira.vercel.app", // Ubah sesuai domain frontend Anda
+}));
 app.use(express.json());
+app.use(express.static(path.join(__dirname, "../public")));
 
-
-app.use(express.static(path.join(__dirname, "../")));
-
+// Endpoint POST untuk menambahkan wish
 app.post("/wishes", (req, res) => {
-  console.log("Data diterima untuk ditambahkan:", req.body); 
+  console.log("Data diterima untuk ditambahkan:", req.body);
 
   const { name, address, wish } = req.body;
 
@@ -42,7 +38,7 @@ app.post("/wishes", (req, res) => {
   });
 });
 
-
+// Endpoint GET untuk mengambil wish
 app.get("/wishes", (req, res) => {
   console.log("Endpoint GET /wishes dipanggil");
   const query = `SELECT * FROM wishes`;
@@ -57,7 +53,7 @@ app.get("/wishes", (req, res) => {
   });
 });
 
-
+// Menjalankan server
 app.listen(PORT, () => {
   console.log(`Server berjalan di http://localhost:${PORT}`);
 });
