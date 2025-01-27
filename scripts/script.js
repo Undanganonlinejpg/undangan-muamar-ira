@@ -185,56 +185,46 @@ document.getElementById('open-wedding-gift').addEventListener('click', function(
   }
 
 //Wish  
-document.addEventListener("DOMContentLoaded", () => {
-  fetchWishes(); 
-});
 
-const sendButton = document.getElementById("send");
-if (!sendButton) {
-  console.error("Elemen dengan ID 'send' tidak ditemukan di DOM.");
-} else {
-  sendButton.addEventListener("click", () => {
-    const name = document.getElementById("name").value.trim();
-    const address = document.getElementById("address").value.trim();
-    const wish = document.getElementById("wish").value.trim();
+// Fungsi untuk mengirimkan data wishes
+function sendWish() {
+  const name = document.getElementById("name").value.trim();
+  const address = document.getElementById("address").value.trim();
+  const wish = document.getElementById("wish").value.trim();
 
-    if (!name || !address || !wish) {
-      alert("Semua field harus diisi!");
-      return;
-    }
+  if (!name || !address || !wish) {
+    alert("Semua field harus diisi!");
+    return;
+  }
 
-    const data = { name, address, wish };
+  const data = { name, address, wish };
 
-    console.log("Data yang akan dikirim:", data);
-
-    fetch("http://localhost:3000/wishes", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json", 
-      },
-      body: JSON.stringify(data), 
+  fetch("https://undangan-muamar-ira.vercel.app/wishes", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      return response.json();
     })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        return response.json();
-      })
-      .then((result) => {
-        console.log("Data berhasil ditambahkan:", result);
-        fetchWishes(); 
-      })
-      .catch((error) => {
-        console.error("Gagal mengirim data:", error);
-        alert("Terjadi kesalahan saat menambahkan data.");
-      });
-  });
+    .then(() => {
+      alert("Ucapan berhasil dikirim!");
+      fetchWishes();
+    })
+    .catch((error) => {
+      console.error("Gagal mengirim data:", error);
+      alert("Terjadi kesalahan saat mengirim data.");
+    });
 }
 
-// Fungsi untuk mengambil data wishes dari server
+// Fungsi untuk mengambil dan menampilkan wishes
 function fetchWishes() {
-  console.log("Fetching wishes...");
-  fetch("http://localhost:3000/wishes") // Endpoint GET
+  fetch("https://undangan-muamar-ira.vercel.app/wishes")
     .then((response) => {
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -242,16 +232,10 @@ function fetchWishes() {
       return response.json();
     })
     .then((data) => {
-      console.log("Data wishes:", data);
       const output = document.getElementById("wishes-output");
-
-      if (!output) {
-        console.error("Elemen wishes-output tidak ditemukan di DOM.");
-        return;
-      }
+      if (!output) return;
 
       output.innerHTML = "";
-
       data.forEach((wish) => {
         const wishItem = `
           <div class="wish-item">
@@ -271,6 +255,11 @@ function fetchWishes() {
     });
 }
 
+// Event listener untuk tombol kirim wishes
+const sendButton = document.getElementById("send");
+if (sendButton) {
+  sendButton.addEventListener("click", sendWish);
+}
 
 //Music  
 const musicToggle = document.getElementById("music-toggle");
