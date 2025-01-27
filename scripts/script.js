@@ -184,7 +184,7 @@ function sendWish() {
 
   const data = { name, address, wish };
 
-  fetch("https://undangan-muamar-ira.vercel.app/wishes", {
+  fetch("https://branch-sixth-tote.glitch.me/wishes", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -205,7 +205,7 @@ function sendWish() {
 
 // Mengambil wishes
 function fetchWishes() {
-  fetch("https://undangan-muamar-ira.vercel.app/wishes")
+  fetch("https://branch-sixth-tote.glitch.me/wishes")
     .then((response) => {
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -230,6 +230,7 @@ function fetchWishes() {
       console.error("Gagal mengambil data:", error);
     });
 }
+
 
 // Inisialisasi saat halaman dimuat
 document.addEventListener("DOMContentLoaded", fetchWishes);
