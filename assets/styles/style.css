@@ -681,10 +681,6 @@ h3 {
 }
 
 @media (max-width: 768px) {
-    body {
-    max-width: 100px;
-    width: 100%;
-      }
     
     .invitation-container {
     margin: 0 auto;
