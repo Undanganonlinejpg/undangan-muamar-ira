@@ -10,46 +10,36 @@ const PORT = process.env.PORT || 3000;
 // Middleware
 app.use(bodyParser.json());
 app.use(cors({
-  origin: "https://undangan-muamar-ira.vercel.app", // Ubah sesuai domain frontend Anda
+  origin: "*", // Ubah jika Anda ingin membatasi akses hanya dari domain tertentu
 }));
 app.use(express.json());
-app.use(express.static(path.join(__dirname, "../public")));
+app.use(express.static(path.join(__dirname, "../")));
 
 // Endpoint POST untuk menambahkan wish
 app.post("/wishes", (req, res) => {
-  console.log("Data diterima untuk ditambahkan:", req.body);
-
   const { name, address, wish } = req.body;
 
   if (!name || !address || !wish) {
-    console.error("Data tidak lengkap:", req.body);
     return res.status(400).json({ error: "Data tidak lengkap" });
   }
 
   const query = `INSERT INTO wishes (name, address, wish) VALUES (?, ?, ?)`;
   db.run(query, [name, address, wish], function (err) {
     if (err) {
-      console.error("Error saat menambahkan data:", err.message);
-      res.status(500).json({ error: err.message });
-    } else {
-      console.log("Data berhasil ditambahkan dengan ID:", this.lastID);
-      res.status(201).json({ id: this.lastID });
+      return res.status(500).json({ error: err.message });
     }
+    res.status(201).json({ id: this.lastID });
   });
 });
 
-// Endpoint GET untuk mengambil wish
+// Endpoint GET untuk mengambil wishes
 app.get("/wishes", (req, res) => {
-  console.log("Endpoint GET /wishes dipanggil");
   const query = `SELECT * FROM wishes`;
   db.all(query, [], (err, rows) => {
     if (err) {
-      console.error("Error saat mengambil data:", err.message);
-      res.status(500).send("Error mengambil data dari database");
-    } else {
-      console.log("Data dari database:", rows);
-      res.json(rows);
+      return res.status(500).json({ error: err.message });
     }
+    res.json(rows);
   });
 });
 
