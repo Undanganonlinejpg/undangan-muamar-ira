@@ -3,9 +3,6 @@
     padding: 0;
     box-sizing: border-box;
 }
-html, body {
-    overflow-x: hidden;
-}
 
 body {
     font-family: 'Alice', sans-serif;
@@ -591,7 +588,7 @@ h3 {
     }
 
     .music-button {
-    display: flex;
+    display: fixed;
     justify-content: center; 
     align-items: center; 
     top: 10px; 
@@ -609,10 +606,6 @@ h3 {
     transition: all 0.3s ease;
     }
     
-    .music-button:hover {
-    background: #FFEC9E;
-    color: #1d3557;
-    }
 
 .closing {
     margin: auto;
@@ -629,20 +622,6 @@ h3 {
     color: white;
 }
 
-.music-button {
-    position: fixed;
-    bottom: 1rem;
-    right: 1rem;
-    background: #144628;
-    color: #f1faee;
-    border: none;
-    padding: 0.8rem 1.2rem;
-    border-radius: 50px;
-    cursor: pointer;
-    font-size: 1rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    transition: background 0.3s, color 0.3s;
-}
 
 .music-button:hover {
     background: #f4a261;
@@ -684,11 +663,6 @@ h3 {
 }
 
 @media (max-width: 768px) {
-
-    html, body {
-    overflow-x: hidden;
-}
-    
     .Photo {
         width: 150px;
         height: 170px;
@@ -712,55 +686,8 @@ h3 {
             max-width: 250px;
             width: 80%;
             }
-    .footer{
+        .footer{
         max-width: 600px;
         width: 100%;
         }
-
-    .music-button {
-    position: fixed;
-    bottom: 1rem;
-    right: 1rem;
-    background: #144628;
-    color: #f1faee;
-    border: none;
-    padding: 0.8rem 1.2rem;
-    border-radius: 50px;
-    cursor: pointer;
-    font-size: 1rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    transition: background 0.3s, color 0.3s;
-}
-
-.music-button:hover {
-    background: #f4a261;
-    color: #1d3557;
-}
-
-}
-
-@media screen and (max-width: 768px) {
-
-    .date {
-        font-size: 1rem;
-    }
-
-    .countdown {
-        padding: 1.5rem;
-    }
-
-    .countdown-item span {
-        font-size: 1.5rem;
-    }
-
-    .countdown-item p {
-        font-size: 0.8rem;
-    }
-
-    button {
-        padding: 8px 16px;
-        font-size: 0.9rem;
-    }
-
-
 }
