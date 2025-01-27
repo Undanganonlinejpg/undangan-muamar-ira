@@ -652,16 +652,6 @@ h3 {
     z-index: 1;
 }
 
-@keyframes fall {
-    0% {
-        transform: translateX(0) rotate(0deg);
-        top: -50px;
-    }
-    100% {
-        transform: translateX(200px) rotate(360deg);
-        top: 100vh;
-    }
-}
 
 @media (max-width: 768px) {
     .Photo {
@@ -716,4 +706,31 @@ h3 {
             background: #f4a261;
             color: #1d3557;
         }
+
+        
+.wedding-gift-button {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    background-color: #73e38a;
+    position: fixed;
+    top: 60px; 
+    right: 11px;  
+    width: 50px; 
+    height: 50px; 
+    border-radius: 50%;
+    border: none;
+    padding: 0; 
+    cursor: pointer;
+    font-size: 1.2rem; 
+    box-shadow: 0 4px 8px rgba(223, 219, 219, 0.3);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    }
+    
+    
+    .wedding-gift-button:hover {
+    background: #57c97b;
+    color: #ffffff;
+    }
 }
