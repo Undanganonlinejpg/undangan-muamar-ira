@@ -1,22 +1,33 @@
-const body = document.querySelector('body');
+const body = document.querySelector('body' , 'html');
 
-// Fungsi untuk membuat elemen daun yang bergerak
 function createLeaf() {
-  const leaf = document.createElement('div');
-  leaf.classList.add('leaf');
-  leaf.style.left = `${Math.random() * 100}vw`;
-  leaf.style.animationDuration = `${Math.random() * 5 + 5}s`;
-  body.appendChild(leaf);
+    const leaf = document.createElement('div');
+    leaf.classList.add('leaf');
+    leaf.style.left = `${Math.random() * 100}vw`; 
+    leaf.style.animationDuration = `${Math.random() * 5 + 5}s`; 
+    body.appendChild(leaf);
 
-  setTimeout(() => {
-    leaf.remove();
-  }, 10000);
+    setTimeout(() => {
+        leaf.remove();
+    }, 10000);
 }
 
-// Interval untuk membuat daun baru
+
 setInterval(createLeaf, 1000);
+const container = document.querySelector('.leaf-container');
+
+function createLeaf() {
+    const leaf = document.createElement('div');
+    leaf.classList.add('leaf');
+    leaf.style.left = `${Math.random() * 100}vw`;
+    leaf.style.animationDuration = `${Math.random() * 5 + 5}s`;
+    container.appendChild(leaf);
 
   
+    setTimeout(() => {
+        leaf.remove();
+    }, 10000);
+}
 const targetDate = new Date("February 2, 2025 00:00:00").getTime();
 
 
