@@ -682,7 +682,8 @@ h3 {
 
 @media (max-width: 768px) {
     body {
-    overflow-x: hidden;
+    max-width: 100px;
+    width: 100%;
       }
     
     .invitation-container {
