@@ -171,40 +171,56 @@ document.getElementById('open-wedding-gift').addEventListener('click', function(
   }
 
 //Wish  
-// Mengirimkan wish
-function sendWish() {
-  const name = document.getElementById("name").value.trim();
-  const address = document.getElementById("address").value.trim();
-  const wish = document.getElementById("wish").value.trim();
+document.addEventListener("DOMContentLoaded", () => {
+  fetchWishes(); 
+});
 
-  if (!name || !address || !wish) {
-    alert("Semua field harus diisi!");
-    return;
-  }
+const sendButton = document.getElementById("send");
+if (!sendButton) {
+  console.error("Elemen dengan ID 'send' tidak ditemukan di DOM.");
+} else {
+  sendButton.addEventListener("click", () => {
+    const name = document.getElementById("name").value.trim();
+    const address = document.getElementById("address").value.trim();
+    const wish = document.getElementById("wish").value.trim();
 
-  const data = { name, address, wish };
+    if (!name || !address || !wish) {
+      alert("Semua field harus diisi!");
+      return;
+    }
 
+    const data = { name, address, wish };
+
+    console.log("Data yang akan dikirim:", data);
+
+    
   fetch("https://branch-sixth-tote.glitch.me/wishes", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(data),
-  })
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      alert("Wish berhasil ditambahkan!");
-      fetchWishes(); // Refresh daftar wishes
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json", 
+      },
+      body: JSON.stringify(data), 
     })
-    .catch((error) => {
-      console.error("Gagal mengirim data:", error);
-    });
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((result) => {
+        console.log("Data berhasil ditambahkan:", result);
+        fetchWishes(); 
+      })
+      .catch((error) => {
+        console.error("Gagal mengirim data:", error);
+        alert("Terjadi kesalahan saat menambahkan data.");
+      });
+  });
 }
 
-// Mengambil wishes
+// Fungsi untuk mengambil data wishes dari server
 function fetchWishes() {
+  console.log("Fetching wishes...");
   fetch("https://branch-sixth-tote.glitch.me/wishes")
     .then((response) => {
       if (!response.ok) {
@@ -213,21 +229,32 @@ function fetchWishes() {
       return response.json();
     })
     .then((data) => {
+      console.log("Data wishes:", data);
       const output = document.getElementById("wishes-output");
-      if (output) {
-        output.innerHTML = data
-          .map(
-            (wish) => `
-          <div class="wish-item">
-            <strong>${wish.name}</strong> dari ${wish.address} berkata: "${wish.wish}"
-          </div>
-        `
-          )
-          .join("");
+
+      if (!output) {
+        console.error("Elemen wishes-output tidak ditemukan di DOM.");
+        return;
       }
+
+      output.innerHTML = "";
+
+      data.forEach((wish) => {
+        const wishItem = `
+          <div class="wish-item">
+            <div class="wish-avatar">${wish.name.charAt(0).toUpperCase()}</div>
+            <div class="wish-content">
+              <p><strong>${wish.name}</strong></p>
+              <p>at ${wish.address}</p>
+              <p>"${wish.wish}"</p>
+            </div>
+          </div>
+        `;
+        output.innerHTML += wishItem;
+      });
     })
     .catch((error) => {
-      console.error("Gagal mengambil data:", error);
+      console.error("Gagal memuat wish:", error);
     });
 }
 
