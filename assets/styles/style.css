@@ -681,6 +681,20 @@ h3 {
 }
 
 @media (max-width: 768px) {
+    .invitation-container {
+    margin: 0 auto;
+    max-width: 100px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: url('/assets/images/Background.png');
+    background-size: cover;
+    padding: 20px;
+}
+    
     .Photo {
         width: 150px;
         height: 170px;
